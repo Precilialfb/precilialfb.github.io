@@ -1,132 +1,155 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lp Studio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LpStudio</title>
 
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    body {
-      font-family: Helvetica, Arial, sans-serif;
-      background: #111; /* IMPORTANT: évite la page blanche si l'image ne charge pas */
-      color: #fff;
-    }
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    background: #111; /* sécurité anti page blanche */
+    color: #fff;
+}
 
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 10;
-    }
+/* HEADER */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 25px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
 
-    .logo-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.8rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
+.logo-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
 
-    .logo-small {
-      width: 30px;
-      height: auto;
-      display: block;
-    }
+.logo-small {
+    width: 30px;
+    height: auto;
+}
 
-    nav a {
-      margin-left: 24px;
-      text-decoration: none;
-      color: #fff;
-      font-size: 0.85rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      opacity: 0.9;
-      transition: opacity 0.2s ease;
-    }
+nav a {
+    margin-left: 30px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: opacity 0.3s;
+}
 
-    nav a:hover { opacity: 0.6; }
+nav a:hover {
+    opacity: 0.6;
+}
 
-    .hero {
-      height: 100vh;
-      /* Fallback: même si l'image ne charge pas, on garde un fond sombre */
-      background-color: #111;
-      background-image: url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1600&q=80');
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
+/* HERO */
+.hero {
+    height: 100vh;
+    background-color: #111;
+    background-image: url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1600&q=80');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      padding: 0 20px;
-    }
+/* Overlay sombre */
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+}
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.45);
-    }
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-    }
+.logo-center {
+    width: 260px;
+    max-width: 80vw;
+    height: auto;
+}
 
-    .logo-center {
-      width: 260px;
-      max-width: 80vw;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-    }
+/* Sections */
+section {
+    padding: 120px 50px;
+    background: #fff;
+    color: #111;
+}
 
-    /* Pour vérifier rapidement que le site charge */
-    .debug {
-      position: fixed;
-      bottom: 12px;
-      left: 12px;
-      font-size: 12px;
-      opacity: 0.7;
-      z-index: 999;
-    }
-  </style>
+section h2 {
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+</style>
 </head>
 
 <body>
 
-  <header>
+<header>
     <div class="logo-left">
-      <img src="Logo.png" alt="Logo" class="logo-small">
-      NOM COMPLET AGENCE
+        <img src="Logo.png" alt="Logo LpStudio" class="logo-small">
+        LpStudio
     </div>
 
     <nav>
-      <a href="#apropos">À propos</a>
-      <a href="#projets">Projets</a>
-      <a href="#offre">Offre</a>
-      <a href="#contact">Contact</a>
+        <a href="#apropos">À propos</a>
+        <a href="#projets">Projets</a>
+        <a href="#offre">Offre</a>
+        <a href="#contact">Contact</a>
     </nav>
-  </header>
+</header>
 
-  <main>
+<main>
     <div class="hero">
-      <div class="hero-content">
-        <img src="Logo.png" alt="Logo agence" class="logo-center">
-      </div>
+        <div class="hero-content">
+            <img src="Logo.png" alt="Logo LpStudio" class="logo-center">
+        </div>
     </div>
-  </main>
 
-  <div class="debug">Si tu vois ce texte, le site charge ✅</div>
+    <section id="apropos">
+        <h2>À propos</h2>
+        <p>Présentation de LpStudio...</p>
+    </section>
+
+    <section id="projets">
+        <h2>Projets</h2>
+        <p>Projets à venir...</p>
+    </section>
+
+    <section id="offre">
+        <h2>Offre</h2>
+        <p>Détail des prestations...</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email : contact@lpstudio.fr</p>
+    </section>
+</main>
 
 </body>
 </html>
