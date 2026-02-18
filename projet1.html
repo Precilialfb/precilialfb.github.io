@@ -1,235 +1,217 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projet 01 — LpStudio</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Projet 01 — LpStudio</title>
 
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-    :root{
-      --warm-white:#f6f1e8;
-      --text-dark:#1a1a1a;
-      --muted:rgba(26,26,26,0.70);
-      --border:rgba(26,26,26,0.12);
-    }
+:root{
+  --warm-white:#f6f1e8;
+  --text-dark:#1a1a1a;
+  --muted:rgba(26,26,26,0.70);
+  --border:rgba(26,26,26,0.12);
+}
 
-    body{
-      font-family: Helvetica, Arial, sans-serif;
-      background: var(--warm-white);
-      color: var(--text-dark);
-    }
+body{
+  font-family: Helvetica, Arial, sans-serif;
+  background: var(--warm-white);
+  color: var(--text-dark);
+}
 
-    /* HEADER */
-    header{
-      position: sticky;
-      top:0;
-      width:100%;
-      padding:22px 50px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      background: rgba(246,241,232,0.85);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
-      z-index: 10;
-    }
+/* HEADER */
+header{
+  position: sticky;
+  top:0;
+  width:100%;
+  padding:22px 50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background: rgba(246,241,232,0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  z-index: 10;
+}
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      text-decoration:none;
-      color: var(--text-dark);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 0.85rem;
-    }
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+}
 
-    .logo-small{
-      width:30px;
-      height:auto;
-      display:block;
-    }
+.logo-small{
+  width:30px;
+}
 
-    nav a{
-      margin-left:26px;
-      text-decoration:none;
-      color: var(--text-dark);
-      font-size: 0.85rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      opacity: 0.85;
-      transition: opacity .2s ease;
-    }
+nav a{
+  margin-left:26px;
+  text-decoration:none;
+  color: var(--text-dark);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.85;
+  transition: opacity .2s ease;
+}
 
-    nav a:hover{ opacity: 0.55; }
+nav a:hover{ opacity: 0.55; }
 
-    /* PAGE */
-    main{
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 70px 50px 120px;
-    }
+/* PAGE */
+main{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 70px 50px 120px;
+}
 
-    h1{
-      font-weight: 400;
-      letter-spacing: 1px;
-      margin-bottom: 30px;
-      font-size: 2rem;
-    }
+h1{
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+  font-size: 2rem;
+}
 
-    /* LAYOUT image gauche / texte droite */
-    .top-layout{
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 40px;
-      align-items: start;
-      margin-bottom: 55px;
-    }
+/* LAYOUT portrait */
+.top-layout{
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr; /* image plus fine */
+  gap: 60px;
+  align-items: start;
+  margin-bottom: 70px;
+}
 
-    .main-visual{
-      width: 100%;
-      height: 420px;           /* image un peu plus petite */
-      object-fit: cover;
-      border-radius: 6px;
-      display: block;
-    }
+/* IMAGE PRINCIPALE PORTRAIT */
+.main-visual{
+  width: 100%;
+  height: auto;   /* IMPORTANT */
+  display: block;
+  border-radius: 6px;
+}
 
-    .desc{
-      padding-top: 6px;
-    }
+/* DESCRIPTION */
+.desc p{
+  line-height: 1.75;
+  color: var(--muted);
+  font-size: 1.02rem;
+  margin-bottom: 18px;
+}
 
-    .desc p{
-      line-height: 1.75;
-      color: var(--muted);
-      font-size: 1.02rem;
-      margin-bottom: 16px;
-    }
+.meta{
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
 
-    .meta{
-      margin-top: 18px;
-      padding-top: 18px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
+/* AVANT / APRES */
+.before-after{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
 
-    /* AVANT / APRES */
-    .before-after{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
-    }
+.card img{
+  width: 100%;
+  height: auto;   /* plus de coupe */
+  border-radius: 6px;
+  display: block;
+}
 
-    .card{
-      background: rgba(255,255,255,0.55);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      overflow: hidden;
-    }
+.label{
+  margin-top: 12px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(26,26,26,0.65);
+}
 
-    .card img{
-      width: 100%;
-      height: 320px;
-      object-fit: cover;
-      display: block;
-    }
+/* Responsive */
+@media (max-width: 950px){
+  main{ padding: 60px 20px 100px; }
+  header{ padding: 18px 20px; }
 
-    .card .label{
-      padding: 14px 16px;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: rgba(26,26,26,0.75);
-    }
+  .top-layout{
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 
-    /* Responsive */
-    @media (max-width: 950px){
-      main{ padding: 60px 20px 100px; }
-      header{ padding: 18px 20px; }
-      nav a{ margin-left: 14px; font-size: 0.75rem; }
-      .brand{ font-size: 0.75rem; }
-
-      .top-layout{
-        grid-template-columns: 1fr;
-      }
-
-      .main-visual{
-        height: 360px;
-      }
-
-      .before-after{
-        grid-template-columns: 1fr;
-      }
-
-      .card img{
-        height: 300px;
-      }
-    }
-  </style>
+  .before-after{
+    grid-template-columns: 1fr;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <a class="brand" href="index.html">
-      <img src="logos.png" alt="Logo LpStudio" class="logo-small" />
-      LpStudio
-    </a>
+<header>
+  <a class="brand" href="index.html">
+    <img src="logos.png" alt="Logo LpStudio" class="logo-small" />
+    LpStudio
+  </a>
 
-    <nav>
-      <a href="apropos.html">À propos</a>
-      <a href="projets.html">Projets</a>
-      <a href="offre.html">Offre</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+  <nav>
+    <a href="apropos.html">À propos</a>
+    <a href="projets.html">Projets</a>
+    <a href="offre.html">Offre</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
 
-  <main>
-    <h1>Projet 01</h1>
+<main>
+<h1>Projet 01</h1>
 
-    <div class="top-layout">
-      <!-- Image principale gauche -->
-      <img src="projet1.jpg" alt="Projet 01 - visuel principal" class="main-visual" />
+<div class="top-layout">
 
-      <!-- Description droite -->
-      <div class="desc">
-        <p>
-          Décris ici le projet : contexte, demande client, style recherché, ambiance, contraintes, etc.
-          (2–6 lignes max pour rester premium).
-        </p>
+  <!-- IMAGE PRINCIPALE -->
+  <img src="projet1.jpg" alt="Projet 01" class="main-visual">
 
-        <p>
-          Tu peux ajouter : matériaux, palette couleur, optimisation des circulations,
-          choix mobilier, lumière, etc.
-        </p>
+  <!-- DESCRIPTION -->
+  <div class="desc">
+    <p>
+      Description du projet : contexte, attentes du client, contraintes,
+      ambiance recherchée, palette choisie, matériaux…
+    </p>
 
-        <div class="meta">
-          <div><strong>Type :</strong> Rénovation intérieure</div>
-          <div><strong>Surface :</strong> XX m²</div>
-          <div><strong>Localisation :</strong> (optionnel)</div>
-          <div><strong>Style :</strong> (Mid-century / Japandi / Moderne…)</div>
-        </div>
-      </div>
+    <p>
+      Explique ton approche, la transformation apportée,
+      l’optimisation des volumes et la cohérence esthétique.
+    </p>
+
+    <div class="meta">
+      <div><strong>Type :</strong> Rénovation intérieure</div>
+      <div><strong>Surface :</strong> XX m²</div>
+      <div><strong>Style :</strong> Mid-century chaleureux</div>
     </div>
+  </div>
 
-    <!-- Avant / Après -->
-    <div class="before-after">
-      <div class="card">
-        <img src="projet1-avant.jpg" alt="Projet 01 - Avant travaux" />
-        <div class="label">Avant travaux</div>
-      </div>
+</div>
 
-      <div class="card">
-        <img src="projet1-apres.jpg" alt="Projet 01 - Après travaux" />
-        <div class="label">Après travaux</div>
-      </div>
-    </div>
+<!-- AVANT / APRES -->
+<div class="before-after">
 
-  </main>
+  <div class="card">
+    <img src="projet1-avant.jpg" alt="Avant travaux">
+    <div class="label">Avant travaux</div>
+  </div>
+
+  <div class="card">
+    <img src="projet1-apres.jpg" alt="Après travaux">
+    <div class="label">Après travaux</div>
+  </div>
+
+</div>
+
+</main>
 
 </body>
 </html>
