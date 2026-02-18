@@ -1,70 +1,192 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projets — LpStudio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projets — LpStudio</title>
 
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    :root{ --warm-white:#f6f1e8; --text-dark:#1a1a1a; --muted:rgba(26,26,26,0.70); --border:rgba(26,26,26,0.12); }
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body { font-family: Helvetica, Arial, sans-serif; background: var(--warm-white); color: var(--text-dark); }
+:root{
+  --warm-white:#f6f1e8;
+  --text-dark:#1a1a1a;
+  --muted:rgba(26,26,26,0.70);
+  --border:rgba(26,26,26,0.12);
+}
 
-    header{
-      position: sticky; top:0; width:100%;
-      padding:22px 50px;
-      display:flex; justify-content:space-between; align-items:center;
-      background: rgba(246,241,232,0.85);
-      backdrop-filter: blur(8px);
-      border-bottom:1px solid var(--border);
-      z-index:10;
-    }
+body{
+  font-family: Helvetica, Arial, sans-serif;
+  background: var(--warm-white);
+  color: var(--text-dark);
+}
 
-    .brand{ display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text-dark);
-      text-transform:uppercase; letter-spacing:2px; font-size:0.85rem; }
-    .logo-small{ width:30px; height:auto; display:block; }
+/* HEADER */
+header{
+  position: sticky;
+  top:0;
+  width:100%;
+  padding:22px 50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background: rgba(246,241,232,0.85);
+  backdrop-filter: blur(8px);
+  border-bottom:1px solid var(--border);
+}
 
-    nav a{ margin-left:26px; text-decoration:none; color:var(--text-dark);
-      font-size:0.85rem; letter-spacing:1px; text-transform:uppercase; opacity:0.85; transition:opacity .2s; }
-    nav a:hover{ opacity:0.55; }
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  color:var(--text-dark);
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:0.85rem;
+}
 
-    main{ max-width:980px; margin:0 auto; padding:90px 50px 120px; }
+.logo-small{ width:30px; }
 
-    h1{ font-weight:400; letter-spacing:1px; margin-bottom:18px; font-size:2rem; }
-    p{ line-height:1.75; color:var(--muted); max-width:820px; font-size:1.02rem; }
+nav a{
+  margin-left:26px;
+  text-decoration:none;
+  color:var(--text-dark);
+  font-size:0.85rem;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  opacity:0.85;
+  transition:opacity .2s;
+}
 
-    @media (max-width:760px){
-      header{ padding:18px 20px; }
-      nav a{ margin-left:14px; font-size:0.75rem; }
-      .brand{ font-size:0.75rem; }
-      main{ padding:70px 20px 100px; }
-      h1{ font-size:1.6rem; }
-    }
-  </style>
+nav a:hover{ opacity:0.55; }
+
+main{
+  max-width:1200px;
+  margin:0 auto;
+  padding:90px 50px 120px;
+}
+
+h1{
+  font-weight:400;
+  letter-spacing:1px;
+  margin-bottom:50px;
+  font-size:2rem;
+}
+
+/* GRILLE */
+
+.grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:30px;
+}
+
+.project{
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+}
+
+.project img{
+  width:100%;
+  height:350px;
+  object-fit:cover;
+  transition: transform .4s ease;
+}
+
+.project:hover img{
+  transform: scale(1.05);
+}
+
+/* Overlay titre */
+.project-title{
+  position:absolute;
+  bottom:20px;
+  left:20px;
+  color:white;
+  font-size:1rem;
+  letter-spacing:1px;
+  z-index:2;
+}
+
+.project::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.25);
+  transition:background .3s;
+}
+
+.project:hover::after{
+  background:rgba(0,0,0,0.45);
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .grid{ grid-template-columns: repeat(2,1fr); }
+}
+
+@media(max-width:600px){
+  .grid{ grid-template-columns:1fr; }
+}
+</style>
 </head>
 
 <body>
-  <header>
-    <a class="brand" href="index.html">
-      <img src="logos.png" alt="Logo LpStudio" class="logo-small" />
-      LpStudio
+
+<header>
+  <a class="brand" href="index.html">
+    <img src="logos.png" class="logo-small">
+    LpStudio
+  </a>
+
+  <nav>
+    <a href="apropos.html">À propos</a>
+    <a href="projets.html">Projets</a>
+    <a href="offre.html">Offre</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Projets</h1>
+
+  <div class="grid">
+
+    <a href="projet1.html" class="project">
+      <img src="projet1.jpg">
+      <div class="project-title">Projet 01</div>
     </a>
 
-    <nav>
-      <a href="apropos.html">À propos</a>
-      <a href="projets.html">Projets</a>
-      <a href="offre.html">Offre</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+    <a href="projet2.html" class="project">
+      <img src="projet2.jpg">
+      <div class="project-title">Projet 02</div>
+    </a>
 
-  <main>
-    <h1>Projets</h1>
-    <p>
-      Ici tu pourras afficher tes projets (avant/après, rendus, descriptions).
-      Quand tu voudras, on ajoutera une grille d’images cliquables.
-    </p>
-  </main>
+    <a href="projet3.html" class="project">
+      <img src="projet3.jpg">
+      <div class="project-title">Projet 03</div>
+    </a>
+
+    <a href="projet4.html" class="project">
+      <img src="projet4.jpg">
+      <div class="project-title">Projet 04</div>
+    </a>
+
+    <a href="projet5.html" class="project">
+      <img src="projet5.jpg">
+      <div class="project-title">Projet 05</div>
+    </a>
+
+    <a href="projet6.html" class="project">
+      <img src="projet6.jpg">
+      <div class="project-title">Projet 06</div>
+    </a>
+
+  </div>
+
+</main>
+
 </body>
 </html>
