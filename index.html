@@ -1,141 +1,132 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nom de ton agence</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nom de ton agence</title>
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-body {
-    font-family: Helvetica, Arial, sans-serif;
-    color: white;
-}
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      background: #111; /* IMPORTANT: évite la page blanche si l'image ne charge pas */
+      color: #fff;
+    }
 
-/* HEADER */
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 25px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 10;
-}
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
 
-.logo-left {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-}
+    .logo-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
 
-.logo-small {
-    width: 30px;
-}
+    .logo-small {
+      width: 30px;
+      height: auto;
+      display: block;
+    }
 
-nav a {
-    margin-left: 30px;
-    text-decoration: none;
-    color: white;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    transition: opacity 0.3s;
-}
+    nav a {
+      margin-left: 24px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      opacity: 0.9;
+      transition: opacity 0.2s ease;
+    }
 
-nav a:hover {
-    opacity: 0.6;
-}
+    nav a:hover { opacity: 0.6; }
 
-/* HERO */
-.hero {
-    height: 100vh;
-    background: url('https://images.unsplash.com/photo-1505691938895-1758d7feb511') center/cover no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
+    .hero {
+      height: 100vh;
+      /* Fallback: même si l'image ne charge pas, on garde un fond sombre */
+      background-color: #111;
+      background-image: url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1600&q=80');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
 
-/* Overlay sombre */
-.hero::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.4);
-    top: 0;
-    left: 0;
-}
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 0 20px;
+    }
 
-.hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-}
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+    }
 
-.logo-center {
-    width: 250px;
-    max-width: 80%;
-}
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
 
-/* Sections futures */
-section {
-    padding: 120px 50px;
-    color: black;
-    background: white;
-}
-</style>
+    .logo-center {
+      width: 260px;
+      max-width: 80vw;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Pour vérifier rapidement que le site charge */
+    .debug {
+      position: fixed;
+      bottom: 12px;
+      left: 12px;
+      font-size: 12px;
+      opacity: 0.7;
+      z-index: 999;
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
+  <header>
     <div class="logo-left">
-        <img src="logo.png" alt="Logo" class="logo-small">
-        NOM COMPLET AGENCE
+      <img src="logo.png" alt="Logo" class="logo-small">
+      NOM COMPLET AGENCE
     </div>
+
     <nav>
-        <a href="#apropos">À propos</a>
-        <a href="#projets">Projets</a>
-        <a href="#offre">Offre</a>
-        <a href="#contact">Contact</a>
+      <a href="#apropos">À propos</a>
+      <a href="#projets">Projets</a>
+      <a href="#offre">Offre</a>
+      <a href="#contact">Contact</a>
     </nav>
-</header>
+  </header>
 
-<div class="hero">
-    <div class="hero-content">
+  <main>
+    <div class="hero">
+      <div class="hero-content">
         <img src="logo.png" alt="Logo agence" class="logo-center">
+      </div>
     </div>
-</div>
+  </main>
 
-<!-- Exemple sections -->
-<section id="apropos">
-    <h2>À propos</h2>
-    <p>Ton texte ici...</p>
-</section>
-
-<section id="projets">
-    <h2>Projets</h2>
-    <p>Ton texte ici...</p>
-</section>
-
-<section id="offre">
-    <h2>Offre</h2>
-    <p>Ton texte ici...</p>
-</section>
-
-<section id="contact">
-    <h2>Contact</h2>
-    <p>Ton texte ici...</p>
-</section>
+  <div class="debug">Si tu vois ce texte, le site charge ✅</div>
 
 </body>
 </html>
