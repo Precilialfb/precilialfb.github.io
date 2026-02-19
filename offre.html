@@ -7,64 +7,301 @@
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    :root{ --warm-white:#f6f1e8; --text-dark:#1a1a1a; --muted:rgba(26,26,26,0.70); --border:rgba(26,26,26,0.12); }
 
-    body { font-family: Helvetica, Arial, sans-serif; background: var(--warm-white); color: var(--text-dark); }
+    :root{
+      --warm-white:#f6f1e8;
+      --text-dark:#1a1a1a;
+      --muted:rgba(26,26,26,0.72);
+      --border:rgba(26,26,26,0.12);
 
-    header{
-      position: sticky; top:0; width:100%;
-      padding:22px 50px;
-      display:flex; justify-content:space-between; align-items:center;
-      background: rgba(246,241,232,0.85);
-      backdrop-filter: blur(8px);
-      border-bottom:1px solid var(--border);
-      z-index:10;
+      /* cartes : taupe orangé chaleureux (pas trop foncé) */
+      --card-bg:#e7d2bf;
+      --card-bg-2:#e4ccb7;
+      --shadow: rgba(26,26,26,0.08);
     }
 
-    .brand{ display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text-dark);
-      text-transform:uppercase; letter-spacing:2px; font-size:0.85rem; }
-    .logo-small{ width:30px; height:auto; display:block; }
+    body{
+      font-family: Helvetica, Arial, sans-serif;
+      background: var(--warm-white);
+      color: var(--text-dark);
+    }
 
-    nav a{ margin-left:26px; text-decoration:none; color:var(--text-dark);
-      font-size:0.85rem; letter-spacing:1px; text-transform:uppercase; opacity:0.85; transition:opacity .2s; }
-    nav a:hover{ opacity:0.55; }
+    /* HEADER */
+    header{
+      position: sticky;
+      top:0;
+      width:100%;
+      padding:22px 50px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background: rgba(246,241,232,0.85);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 10;
+    }
 
-    main{ max-width:980px; margin:0 auto; padding:90px 50px 120px; }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      color: var(--text-dark);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+    }
 
-    h1{ font-weight:400; letter-spacing:1px; margin-bottom:18px; font-size:2rem; }
-    p{ line-height:1.75; color:var(--muted); max-width:820px; font-size:1.02rem; }
+    .logo-small{ width:30px; }
 
-    @media (max-width:760px){
-      header{ padding:18px 20px; }
-      nav a{ margin-left:14px; font-size:0.75rem; }
-      .brand{ font-size:0.75rem; }
-      main{ padding:70px 20px 100px; }
-      h1{ font-size:1.6rem; }
+    nav a{
+      margin-left:26px;
+      text-decoration:none;
+      color: var(--text-dark);
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      opacity: 0.85;
+      transition: opacity .2s ease;
+    }
+    nav a:hover{ opacity: 0.55; }
+
+    /* PAGE */
+    main{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 50px 120px;
+    }
+
+    h1{
+      font-weight: 400;
+      letter-spacing: 1px;
+      font-size: 2rem;
+      margin-bottom: 14px;
+    }
+
+    .intro{
+      max-width: 850px;
+      line-height: 1.75;
+      color: var(--muted);
+      margin-bottom: 55px;
+      font-size: 1.02rem;
+    }
+
+    /* GRID OFFRES */
+    .offers{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
+    .card{
+      background: linear-gradient(180deg, var(--card-bg), var(--card-bg-2));
+      border: 1px solid rgba(26,26,26,0.10);
+      border-radius: 10px;
+      padding: 26px 24px;
+      box-shadow: 0 10px 30px var(--shadow);
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .badge{
+      display: inline-block;
+      font-size: 0.78rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(26,26,26,0.75);
+      margin-bottom: 10px;
+    }
+
+    .card h2{
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+    }
+
+    .price{
+      font-size: 1.1rem;
+      letter-spacing: 0.3px;
+      margin: 8px 0 14px;
+    }
+    .price strong{ font-weight: 700; }
+
+    .card p{
+      line-height: 1.7;
+      color: rgba(26,26,26,0.78);
+      margin-bottom: 14px;
+      font-size: 0.98rem;
+    }
+
+    ul{
+      list-style: none;
+      padding-left: 0;
+      margin-top: 8px;
+      margin-bottom: 16px;
+    }
+    li{
+      margin: 10px 0;
+      color: rgba(26,26,26,0.78);
+      line-height: 1.55;
+    }
+    li::before{
+      content: "—";
+      margin-right: 10px;
+      color: rgba(26,26,26,0.55);
+    }
+
+    .note{
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: rgba(26,26,26,0.70);
+      border-top: 1px solid rgba(26,26,26,0.14);
+      padding-top: 14px;
+      line-height: 1.55;
+    }
+
+    /* Bloc infos */
+    .info{
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 22px;
+      background: rgba(255,255,255,0.35);
+      max-width: 900px;
+    }
+    .info h3{
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+    .info p{
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.98rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 1020px){
+      .offers{ grid-template-columns: 1fr; }
+      .card{ min-height: auto; }
+    }
+    @media (max-width: 760px){
+      header{ padding: 18px 20px; }
+      nav a{ margin-left: 14px; font-size: 0.75rem; }
+      .brand{ font-size: 0.75rem; }
+      main{ padding: 70px 20px 110px; }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <a class="brand" href="index.html">
-      <img src="logos.png" alt="Logo LpStudio" class="logo-small" />
-      LpStudio
-    </a>
 
-    <nav>
-      <a href="apropos.html">À propos</a>
-      <a href="projets.html">Projets</a>
-      <a href="offre.html">Offre</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+<header>
+  <a class="brand" href="index.html">
+    <img src="logos.png" alt="Logo LpStudio" class="logo-small" />
+    LpStudio
+  </a>
 
-  <main>
-    <h1>Offre</h1>
+  <nav>
+    <a href="apropos.html">À propos</a>
+    <a href="projets.html">Projets</a>
+    <a href="offre.html">Offre</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Offre</h1>
+  <p class="intro">
+    Trois formats d’accompagnement, selon votre besoin : un regard expert rapide, une conception complète d’espace,
+    ou une valorisation avant vente. Avant toute prestation sur site, un devis clair est envoyé pour éviter toute surprise.
+  </p>
+
+  <div class="offers">
+
+    <!-- OFFRE 1 -->
+    <div class="card">
+      <div>
+        <div class="badge">01 — Audit / Conseil</div>
+        <h2>Visite conseil</h2>
+        <div class="price"><strong>À partir de 150 €</strong> (1h30)</div>
+        <p>
+          Un format idéal si vous souhaitez valider des choix, débloquer un plan, ou clarifier une direction
+          (lumière, matériaux, circulation, couleurs, optimisation).
+        </p>
+        <ul>
+          <li>Analyse de l’existant et de vos objectifs</li>
+          <li>Recommandations concrètes (ambiance, palette, matériaux)</li>
+          <li>Optimisation de l’implantation (croquis rapide si besoin)</li>
+          <li>Compte-rendu synthétique par email (optionnel)</li>
+        </ul>
+      </div>
+      <div class="note">
+        Déplacement inclus dans un périmètre défini (sinon sur devis). Paiement le jour du rendez-vous ou en amont.
+      </div>
+    </div>
+
+    <!-- OFFRE 2 -->
+    <div class="card">
+      <div>
+        <div class="badge">02 — Conception d’espace</div>
+        <h2>Projet d’aménagement</h2>
+        <div class="price"><strong>De 450 € à 2 500 €</strong> (selon surface)</div>
+        <p>
+          Pour repenser une pièce ou un logement : une proposition structurée, esthétique et fonctionnelle,
+          avec des livrables clairs pour vous projeter et passer à l’action.
+        </p>
+        <ul>
+          <li>Relevé / analyse (sur plan ou sur site selon besoin)</li>
+          <li>Plans d’aménagement (2D) + options d’implantation</li>
+          <li>Moodboard / ambiance (matières, couleurs, style)</li>
+          <li>Liste shopping / références (option)</li>
+          <li>Visuels 3D selon niveau de prestation (option)</li>
+        </ul>
+      </div>
+      <div class="note">
+        Le devis est envoyé avant tout rendez-vous. Prix ajusté selon la complexité, la surface et les livrables demandés.
+      </div>
+    </div>
+
+    <!-- OFFRE 3 -->
+    <div class="card">
+      <div>
+        <div class="badge">03 — Valorisation avant vente</div>
+        <h2>Home staging</h2>
+        <div class="price"><strong>À partir de 220 €</strong></div>
+        <p>
+          Pour mieux vendre : révéler le potentiel d’un bien, guider les acheteurs, et créer une perception plus
+          lumineuse et plus cohérente, sans travaux lourds.
+        </p>
+        <ul>
+          <li>Diagnostic des points bloquants (photo / visite)</li>
+          <li>Recommandations d’optimisation (désencombrement, agencement)</li>
+          <li>Propositions déco & mise en scène (budget maîtrisé)</li>
+          <li>Liste d’actions priorisées + shopping list</li>
+          <li>Option : plan “meublé” / projection d’implantation</li>
+        </ul>
+      </div>
+      <div class="note">
+        Objectif : déclencher le coup de cœur et accélérer la décision. Idéal particuliers & agences immobilières.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="info">
+    <h3>Fonctionnement</h3>
     <p>
-      Ici tu décris tes prestations (Conseil sur place, Carnet de plans, Option suivi, etc.).
-      Si tu veux, on pourra créer des “cartes” avec prix et livrables.
+      Après un premier échange (email ou téléphone), je vous propose le format le plus adapté et j’envoie un devis clair.
+      Une fois validé, nous planifions le rendez-vous ou le lancement de la conception. Je m’adapte à tous les styles
+      (mid-century, japandi, moderne, cocooning…) en gardant une ligne directrice : un intérieur harmonieux, pratique et durable.
     </p>
-  </main>
+  </div>
+
+</main>
+
 </body>
 </html>
