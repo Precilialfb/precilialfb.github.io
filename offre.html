@@ -1,200 +1,170 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Offre — LpStudio</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Offre — LpStudio</title>
 
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-    :root{
-      --warm-white:#f6f1e8;
-      --text-dark:#1a1a1a;
-      --muted:rgba(26,26,26,0.72);
-      --border:rgba(26,26,26,0.12);
+:root{
+  --warm-white:#f6f1e8;
+  --text-dark:#1a1a1a;
+  --card-color:#ac6a35;
+}
 
-      /* cartes : taupe orangé chaleureux (pas trop foncé) */
-      --card-bg:#e7d2bf;
-      --card-bg-2:#e4ccb7;
-      --shadow: rgba(26,26,26,0.08);
-    }
+body{
+  font-family: Helvetica, Arial, sans-serif;
+  background: var(--warm-white);
+  color: var(--text-dark);
+}
 
-    body{
-      font-family: Helvetica, Arial, sans-serif;
-      background: var(--warm-white);
-      color: var(--text-dark);
-    }
+/* HEADER */
+header{
+  position: sticky;
+  top:0;
+  width:100%;
+  padding:22px 50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background: rgba(246,241,232,0.9);
+  border-bottom: 1px solid rgba(26,26,26,0.1);
+  z-index: 10;
+}
 
-    /* HEADER */
-    header{
-      position: sticky;
-      top:0;
-      width:100%;
-      padding:22px 50px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      background: rgba(246,241,232,0.85);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
-      z-index: 10;
-    }
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+}
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      text-decoration:none;
-      color: var(--text-dark);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 0.85rem;
-    }
+.logo-small{ width:30px; }
 
-    .logo-small{ width:30px; }
+nav a{
+  margin-left:26px;
+  text-decoration:none;
+  color: var(--text-dark);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.85;
+  transition: opacity .2s ease;
+}
 
-    nav a{
-      margin-left:26px;
-      text-decoration:none;
-      color: var(--text-dark);
-      font-size: 0.85rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      opacity: 0.85;
-      transition: opacity .2s ease;
-    }
-    nav a:hover{ opacity: 0.55; }
+nav a:hover{ opacity: 0.55; }
 
-    /* PAGE */
-    main{
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 80px 50px 120px;
-    }
+/* PAGE */
+main{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 90px 50px 120px;
+}
 
-    h1{
-      font-weight: 400;
-      letter-spacing: 1px;
-      font-size: 2rem;
-      margin-bottom: 14px;
-    }
+h1{
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
 
-    .intro{
-      max-width: 850px;
-      line-height: 1.75;
-      color: var(--muted);
-      margin-bottom: 55px;
-      font-size: 1.02rem;
-    }
+.intro{
+  max-width: 850px;
+  line-height: 1.7;
+  margin-bottom: 60px;
+  color: rgba(26,26,26,0.7);
+}
 
-    /* GRID OFFRES */
-    .offers{
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-bottom: 60px;
-    }
+/* OFFERS GRID */
+.offers{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
 
-    .card{
-      background: linear-gradient(180deg, var(--card-bg), var(--card-bg-2));
-      border: 1px solid rgba(26,26,26,0.10);
-      border-radius: 10px;
-      padding: 26px 24px;
-      box-shadow: 0 10px 30px var(--shadow);
-      min-height: 360px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+.card{
+  background: var(--card-color);
+  border-radius: 12px;
+  padding: 30px;
+  color: #f6f1e8;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 420px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease;
+}
 
-    .badge{
-      display: inline-block;
-      font-size: 0.78rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: rgba(26,26,26,0.75);
-      margin-bottom: 10px;
-    }
+.card:hover{
+  transform: translateY(-6px);
+}
 
-    .card h2{
-      font-weight: 400;
-      letter-spacing: 0.5px;
-      font-size: 1.35rem;
-      margin-bottom: 10px;
-    }
+.badge{
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
 
-    .price{
-      font-size: 1.1rem;
-      letter-spacing: 0.3px;
-      margin: 8px 0 14px;
-    }
-    .price strong{ font-weight: 700; }
+.card h2{
+  font-weight: 400;
+  margin-bottom: 10px;
+}
 
-    .card p{
-      line-height: 1.7;
-      color: rgba(26,26,26,0.78);
-      margin-bottom: 14px;
-      font-size: 0.98rem;
-    }
+.price{
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+}
 
-    ul{
-      list-style: none;
-      padding-left: 0;
-      margin-top: 8px;
-      margin-bottom: 16px;
-    }
-    li{
-      margin: 10px 0;
-      color: rgba(26,26,26,0.78);
-      line-height: 1.55;
-    }
-    li::before{
-      content: "—";
-      margin-right: 10px;
-      color: rgba(26,26,26,0.55);
-    }
+.card p{
+  line-height: 1.6;
+  margin-bottom: 15px;
+  opacity: 0.95;
+}
 
-    .note{
-      margin-top: 10px;
-      font-size: 0.9rem;
-      color: rgba(26,26,26,0.70);
-      border-top: 1px solid rgba(26,26,26,0.14);
-      padding-top: 14px;
-      line-height: 1.55;
-    }
+ul{
+  list-style: none;
+  margin-bottom: 20px;
+}
 
-    /* Bloc infos */
-    .info{
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 20px 22px;
-      background: rgba(255,255,255,0.35);
-      max-width: 900px;
-    }
-    .info h3{
-      font-weight: 400;
-      letter-spacing: 0.5px;
-      margin-bottom: 10px;
-    }
-    .info p{
-      color: var(--muted);
-      line-height: 1.7;
-      font-size: 0.98rem;
-    }
+li{
+  margin: 8px 0;
+  line-height: 1.5;
+}
 
-    /* Responsive */
-    @media (max-width: 1020px){
-      .offers{ grid-template-columns: 1fr; }
-      .card{ min-height: auto; }
-    }
-    @media (max-width: 760px){
-      header{ padding: 18px 20px; }
-      nav a{ margin-left: 14px; font-size: 0.75rem; }
-      .brand{ font-size: 0.75rem; }
-      main{ padding: 70px 20px 110px; }
-    }
-  </style>
+li::before{
+  content: "— ";
+  opacity: 0.7;
+}
+
+.note{
+  font-size: 0.85rem;
+  opacity: 0.85;
+  border-top: 1px solid rgba(255,255,255,0.3);
+  padding-top: 15px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1000px){
+  .offers{
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px){
+  header{ padding: 18px 20px; }
+  nav a{ margin-left: 14px; font-size: 0.75rem; }
+  .brand{ font-size: 0.75rem; }
+  main{ padding: 70px 20px 110px; }
+}
+</style>
 </head>
 
 <body>
@@ -214,92 +184,86 @@
 </header>
 
 <main>
-  <h1>Offre</h1>
-  <p class="intro">
-    Trois formats d’accompagnement, selon votre besoin : un regard expert rapide, une conception complète d’espace,
-    ou une valorisation avant vente. Avant toute prestation sur site, un devis clair est envoyé pour éviter toute surprise.
-  </p>
 
-  <div class="offers">
+<h1>Offre</h1>
 
-    <!-- OFFRE 1 -->
-    <div class="card">
-      <div>
-        <div class="badge">01 — Audit / Conseil</div>
-        <h2>Visite conseil</h2>
-        <div class="price"><strong>À partir de 150 €</strong> (1h30)</div>
-        <p>
-          Un format idéal si vous souhaitez valider des choix, débloquer un plan, ou clarifier une direction
-          (lumière, matériaux, circulation, couleurs, optimisation).
-        </p>
-        <ul>
-          <li>Analyse de l’existant et de vos objectifs</li>
-          <li>Recommandations concrètes (ambiance, palette, matériaux)</li>
-          <li>Optimisation de l’implantation (croquis rapide si besoin)</li>
-          <li>Compte-rendu synthétique par email (optionnel)</li>
-        </ul>
-      </div>
-      <div class="note">
-        Déplacement inclus dans un périmètre défini (sinon sur devis). Paiement le jour du rendez-vous ou en amont.
-      </div>
+<p class="intro">
+Trois formats d’accompagnement selon votre besoin : un regard expert ponctuel,
+une conception complète d’espace ou une valorisation avant vente.
+Un devis est systématiquement envoyé avant toute prestation afin d’assurer
+transparence et sérénité.
+</p>
+
+<div class="offers">
+
+  <!-- OFFRE 1 -->
+  <div class="card">
+    <div>
+      <div class="badge">01 — Audit / Conseil</div>
+      <h2>Visite conseil</h2>
+      <div class="price">À partir de 150 €</div>
+      <p>
+        Un rendez-vous sur place pour analyser votre espace,
+        clarifier vos envies et vous orienter vers des choix cohérents.
+      </p>
+      <ul>
+        <li>Analyse de l’existant</li>
+        <li>Conseils implantation & circulation</li>
+        <li>Orientation matériaux & couleurs</li>
+        <li>Croquis rapide si nécessaire</li>
+      </ul>
     </div>
-
-    <!-- OFFRE 2 -->
-    <div class="card">
-      <div>
-        <div class="badge">02 — Conception d’espace</div>
-        <h2>Projet d’aménagement</h2>
-        <div class="price"><strong>De 450 € à 2 500 €</strong> (selon surface)</div>
-        <p>
-          Pour repenser une pièce ou un logement : une proposition structurée, esthétique et fonctionnelle,
-          avec des livrables clairs pour vous projeter et passer à l’action.
-        </p>
-        <ul>
-          <li>Relevé / analyse (sur plan ou sur site selon besoin)</li>
-          <li>Plans d’aménagement (2D) + options d’implantation</li>
-          <li>Moodboard / ambiance (matières, couleurs, style)</li>
-          <li>Liste shopping / références (option)</li>
-          <li>Visuels 3D selon niveau de prestation (option)</li>
-        </ul>
-      </div>
-      <div class="note">
-        Le devis est envoyé avant tout rendez-vous. Prix ajusté selon la complexité, la surface et les livrables demandés.
-      </div>
+    <div class="note">
+      Idéal pour débloquer un projet ou valider des choix avant travaux.
     </div>
-
-    <!-- OFFRE 3 -->
-    <div class="card">
-      <div>
-        <div class="badge">03 — Valorisation avant vente</div>
-        <h2>Home staging</h2>
-        <div class="price"><strong>À partir de 220 €</strong></div>
-        <p>
-          Pour mieux vendre : révéler le potentiel d’un bien, guider les acheteurs, et créer une perception plus
-          lumineuse et plus cohérente, sans travaux lourds.
-        </p>
-        <ul>
-          <li>Diagnostic des points bloquants (photo / visite)</li>
-          <li>Recommandations d’optimisation (désencombrement, agencement)</li>
-          <li>Propositions déco & mise en scène (budget maîtrisé)</li>
-          <li>Liste d’actions priorisées + shopping list</li>
-          <li>Option : plan “meublé” / projection d’implantation</li>
-        </ul>
-      </div>
-      <div class="note">
-        Objectif : déclencher le coup de cœur et accélérer la décision. Idéal particuliers & agences immobilières.
-      </div>
-    </div>
-
   </div>
 
-  <div class="info">
-    <h3>Fonctionnement</h3>
-    <p>
-      Après un premier échange (email ou téléphone), je vous propose le format le plus adapté et j’envoie un devis clair.
-      Une fois validé, nous planifions le rendez-vous ou le lancement de la conception. Je m’adapte à tous les styles
-      (mid-century, japandi, moderne, cocooning…) en gardant une ligne directrice : un intérieur harmonieux, pratique et durable.
-    </p>
+  <!-- OFFRE 2 -->
+  <div class="card">
+    <div>
+      <div class="badge">02 — Conception d’espace</div>
+      <h2>Projet d’aménagement</h2>
+      <div class="price">De 450 € à 2 500 €</div>
+      <p>
+        De la pièce unique à un logement complet, une conception
+        structurée et détaillée adaptée à votre budget.
+      </p>
+      <ul>
+        <li>Plans d’aménagement 2D</li>
+        <li>Moodboard & ambiance</li>
+        <li>Propositions matériaux</li>
+        <li>Liste shopping</li>
+        <li>Visuels 3D en option</li>
+      </ul>
+    </div>
+    <div class="note">
+      Le tarif varie selon la surface et la complexité. Devis transmis avant tout rendez-vous.
+    </div>
   </div>
+
+  <!-- OFFRE 3 -->
+  <div class="card">
+    <div>
+      <div class="badge">03 — Valorisation</div>
+      <h2>Home staging</h2>
+      <div class="price">À partir de 220 €</div>
+      <p>
+        Optimiser l’image d’un bien pour accélérer la vente
+        et créer un véritable coup de cœur.
+      </p>
+      <ul>
+        <li>Diagnostic des points faibles</li>
+        <li>Recommandations d’optimisation</li>
+        <li>Mise en scène & harmonisation</li>
+        <li>Projection d’implantation possible</li>
+      </ul>
+    </div>
+    <div class="note">
+      Adapté aux particuliers comme aux agences immobilières.
+    </div>
+  </div>
+
+</div>
 
 </main>
 
