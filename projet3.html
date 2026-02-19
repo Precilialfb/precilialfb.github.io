@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Réhabilitation d'une longère — LpStudio</title>
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root{
+  --warm-white:#f6f1e8;
+  --text-dark:#1a1a1a;
+  --muted:rgba(26,26,26,0.70);
+  --border:rgba(26,26,26,0.12);
+}
+
+body{
+  font-family: Helvetica, Arial, sans-serif;
+  background: var(--warm-white);
+  color: var(--text-dark);
+}
+
+/* HEADER */
+header{
+  position: sticky;
+  top:0;
+  width:100%;
+  padding:22px 50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background: rgba(246,241,232,0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  z-index: 10;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+}
+
+.logo-small{ width:30px; }
+
+nav a{
+  margin-left:26px;
+  text-decoration:none;
+  color: var(--text-dark);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.85;
+  transition: opacity .2s ease;
+}
+
+nav a:hover{ opacity: 0.55; }
+
+/* PAGE */
+main{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 70px 50px 120px;
+}
+
+h1{
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-bottom: 50px;
+  font-size: 2rem;
+}
+
+/* LAYOUT image droite */
+.top-layout{
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 60px;
+  align-items: start;
+  margin-bottom: 80px;
+}
+
+.desc p{
+  line-height: 1.75;
+  color: var(--muted);
+  font-size: 1.02rem;
+  margin-bottom: 18px;
+}
+
+.main-visual{
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* PLAN */
+.plan-section{
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.plan-section img{
+  width: 75%;
+  max-width: 900px;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* EXISTANT */
+.existant{
+  margin-bottom: 80px;
+}
+
+.existant h2{
+  font-weight: 400;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+.existant-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.existant-grid img{
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* PHOTOREALISTE */
+.render-section h2{
+  font-weight: 400;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+.render-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.render-grid img{
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* Responsive */
+@media (max-width: 1000px){
+  .top-layout{
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .existant-grid,
+  .render-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px){
+  main{ padding: 60px 20px 100px; }
+  header{ padding: 18px 20px; }
+  nav a{ margin-left: 14px; font-size: 0.75rem; }
+
+  .existant-grid,
+  .render-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .plan-section img{
+    width: 100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="brand" href="index.html">
+    <img src="logos.png" alt="Logo LpStudio" class="logo-small" />
+    LpStudio
+  </a>
+
+  <nav>
+    <a href="apropos.html">À propos</a>
+    <a href="projets.html">Projets</a>
+    <a href="offre.html">Offre</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+<h1>Réhabilitation d'une longère</h1>
+
+<div class="top-layout">
+
+  <!-- TEXTE GAUCHE -->
+  <div class="desc">
+    <p>
+      Ce projet de réhabilitation consiste à redonner vie à une longère ancienne en repensant entièrement
+      ses volumes intérieurs et son organisation spatiale.
+    </p>
+
+    <p>
+      L’objectif était de conserver l’âme du bâti existant tout en apportant
+      luminosité, fluidité et modernité. Les espaces ont été restructurés afin
+      d’optimiser les circulations et de créer une continuité visuelle entre les différentes pièces.
+    </p>
+
+    <p>
+      Le parti pris architectural s’articule autour de matériaux naturels,
+      d’une palette chaleureuse et d’une mise en valeur des éléments d’origine.
+    </p>
+  </div>
+
+  <!-- IMAGE PRINCIPALE DROITE -->
+  <img src="chambre.jpg" alt="Perspective principale" class="main-visual">
+
+</div>
+
+<!-- PLAN -->
+<div class="plan-section">
+  <img src="planprojet.jpg" alt="Plan du projet">
+</div>
+
+<!-- EXISTANT -->
+<div class="existant">
+  <h2>Lieux existants</h2>
+  <div class="existant-grid">
+    <img src="int1.jpg" alt="">
+    <img src="int2.jpg" alt="">
+    <img src="int3.jpg" alt="">
+  </div>
+</div>
+
+<!-- RENDUS -->
+<div class="render-section">
+  <h2>Perspectives photoréalistes</h2>
+  <div class="render-grid">
+    <img src="sam1.jpg" alt="">
+    <img src="sam2.jpg" alt="">
+    <img src="sam3.jpg" alt="">
+    <img src="sam4.jpg" alt="">
+    <img src="chambrebeige.jpg" alt="">
+    <img src="bibliothèque.jpg" alt="">
+  </div>
+</div>
+
+</main>
+
+</body>
+</html>
