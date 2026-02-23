@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Séjour & cuisine ouverte — LpStudio</title>
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root{
+  --warm-white:#f6f1e8;
+  --text-dark:#1a1a1a;
+  --muted:rgba(26,26,26,0.70);
+  --border:rgba(26,26,26,0.12);
+}
+
+body{
+  font-family: Helvetica, Arial, sans-serif;
+  background: var(--warm-white);
+  color: var(--text-dark);
+}
+
+/* HEADER */
+header{
+  position: sticky;
+  top:0;
+  width:100%;
+  padding:22px 50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background: rgba(246,241,232,0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  z-index: 10;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+}
+
+.logo-small{ width:30px; }
+
+nav a{
+  margin-left:26px;
+  text-decoration:none;
+  color: var(--text-dark);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.85;
+  transition: opacity .2s ease;
+}
+nav a:hover{ opacity: 0.55; }
+
+/* PAGE */
+main{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 70px 50px 120px;
+}
+
+h1{
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.subtitle{
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 900px;
+  margin-bottom: 60px;
+}
+
+/* TOP LAYOUT */
+.top-layout{
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 60px;
+  align-items: start;
+  margin-bottom: 80px;
+}
+
+.desc p{
+  line-height: 1.75;
+  color: var(--muted);
+  font-size: 1.02rem;
+  margin-bottom: 18px;
+}
+
+.meta{
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.main-visual{
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  display: block;
+}
+
+/* PLAN SECTION */
+.plan-section{
+  text-align: center;
+  margin-bottom: 90px;
+}
+
+.plan-section h2{
+  font-weight: 400;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+.plan-section img{
+  width: 80%;
+  max-width: 950px;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* SECTIONS */
+.section{
+  margin-bottom: 80px;
+}
+
+.section h2{
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+}
+
+.section p{
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 25px;
+  max-width: 900px;
+}
+
+/* GRID IMAGES */
+.grid-3{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.grid-3 img{
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  display: block;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1000px){
+  .top-layout{
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .grid-3{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px){
+  main{ padding: 60px 20px 100px; }
+  header{ padding: 18px 20px; }
+  nav a{ margin-left: 14px; font-size: 0.75rem; }
+  .brand{ font-size: 0.75rem; }
+
+  .grid-3{
+    grid-template-columns: 1fr;
+  }
+
+  .plan-section img{
+    width: 100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="brand" href="index.html">
+    <img src="logos.png" alt="Logo LpStudio" class="logo-small" />
+    LpStudio
+  </a>
+
+  <nav>
+    <a href="apropos.html">À propos</a>
+    <a href="projets.html">Projets</a>
+    <a href="offre.html">Offre</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+<h1>Séjour & cuisine ouverte</h1>
+<p class="subtitle">
+Projet de conception (plans + 3D) d’un séjour avec cuisine ouverte, décliné en deux univers distincts
+afin de proposer une double lecture esthétique et fonctionnelle de l’espace.
+</p>
+
+<div class="top-layout">
+
+  <!-- TEXTE GAUCHE -->
+  <div class="desc">
+    <p>
+      L’objectif était d’optimiser la circulation entre cuisine et espace salon tout en structurant visuellement les fonctions.
+      Deux propositions ont été développées à partir d’un même plan, mais avec des partis pris esthétiques différents.
+    </p>
+
+    <p>
+      Une première ambiance mid-century, plus chaleureuse et graphique,
+      puis une seconde interprétation scandinave contemporaine, plus lumineuse et minimaliste.
+    </p>
+
+    <div class="meta">
+      <div><strong>Type :</strong> Conception d’espace</div>
+      <div><strong>Livrables :</strong> Plan + perspectives 3D</div>
+      <div><strong>Deux styles :</strong> Mid-century / Scandinave contemporain</div>
+    </div>
+  </div>
+
+  <!-- IMAGE PRINCIPALE DROITE -->
+  <img src="mid1.jpg" alt="Proposition mid-century principale" class="main-visual">
+
+</div>
+
+<!-- PLAN -->
+<div class="plan-section">
+  <h2>Plan d’aménagement</h2>
+  <img src="planprojet3.jpg" alt="Plan du séjour avec cuisine ouverte">
+</div>
+
+<!-- PROPOSITION 1 -->
+<section class="section">
+  <h2>Proposition 01 — Mid-century</h2>
+  <p>
+    Une ambiance structurée et chaleureuse : bois, contrastes marqués et mobilier d’inspiration vintage,
+    pour un intérieur avec du caractère tout en conservant une cohérence globale.
+  </p>
+
+  <div class="grid-3">
+    <img src="mid1.jpg" alt="">
+    <img src="mid2.jpg" alt="">
+    <img src="mid3.jpg" alt="">
+  </div>
+</section>
+
+<!-- PROPOSITION 2 -->
+<section class="section">
+  <h2>Proposition 02 — Scandinave contemporain</h2>
+  <p>
+    Une lecture plus douce et épurée de l’espace : palette claire, matières naturelles et lignes simples,
+    pour un séjour lumineux et intemporel.
+  </p>
+
+  <div class="grid-3">
+    <img src="scan1.jpg" alt="">
+    <img src="scan2.jpg" alt="">
+    <img src="scan3.jpg" alt="">
+  </div>
+</section>
+
+</main>
+
+</body>
+</html>
