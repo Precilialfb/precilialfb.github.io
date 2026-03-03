@@ -9,8 +9,8 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root{
-      --warm-white: #f6f1e8;   /* blanc cassé */
-      --text-warm:  #f3eadf;   /* texte blanc cassé sur fond hero */
+      --warm-white: #f6f1e8;
+      --text-warm:  #f3eadf;
       --text-dark:  #1a1a1a;
     }
 
@@ -35,16 +35,17 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 10px;
-      text-decoration: none; /* lien vers accueil */
+      gap: 12px;
+      text-decoration: none;
       color: var(--text-warm);
       text-transform: uppercase;
       letter-spacing: 2px;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
     }
 
+    /* LOGO HAUT GAUCHE AGRANDI */
     .logo-small {
-      width: 30px;
+      width: 40px;   /* agrandi légèrement */
       height: auto;
       display: block;
     }
@@ -52,51 +53,32 @@
     nav a {
       margin-left: 26px;
       text-decoration: none;
-      color: var(--text-warm); /* blanc cassé */
+      color: var(--text-warm);
       font-size: 0.85rem;
       letter-spacing: 1px;
       text-transform: uppercase;
       opacity: 0.95;
       transition: opacity 0.2s ease;
     }
+
     nav a:hover { opacity: 0.65; }
 
     /* HERO */
     .hero {
       height: 100vh;
-      background-color: #111;
-      background-image: url('accueil site.jpg');
+      background-image: url("accueil site.jpg"); /* image avec logo intégré */
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
       position: relative;
-      padding: 0 20px;
-      overflow: hidden;
     }
 
     .hero::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.28); /* overlay un peu plus léger */
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-    }
-
-    .logo-center {
-      width: 260px;
-      max-width: 80vw;
-      height: auto;
-      display: block;
-      margin: 0 auto;
+      background: rgba(0,0,0,0.25);
     }
 
     /* Empêche le scroll sur l'accueil */
@@ -108,15 +90,17 @@
       header { padding: 18px 20px; }
       nav a { margin-left: 14px; font-size: 0.75rem; }
       .brand { font-size: 0.75rem; }
-      .logo-center { width: 210px; }
+      .logo-small { width: 32px; }
     }
+
   </style>
 </head>
 
 <body>
+
   <header>
     <a class="brand" href="index.html">
-      <img src="logoLFB.png" alt="Logo LFBStudio" class="logo-small" />
+      <img src="logoLFB.png" alt="Logo LFB Studio" class="logo-small" />
       LFB Studio
     </a>
 
@@ -127,6 +111,9 @@
       <a href="contact.html">Contact</a>
     </nav>
   </header>
+
+  <!-- HERO REMIS (obligatoire pour afficher le fond) -->
+  <div class="hero"></div>
 
 </body>
 </html>
