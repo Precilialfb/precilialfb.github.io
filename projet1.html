@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Salle d’eau épurée — LFBStudio</title>
+<title>Transformation d’une salle de bain — LFB Studio</title>
 
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -78,20 +78,13 @@ h1{
   font-size: 2rem;
 }
 
-/* LAYOUT portrait */
+/* LAYOUT principal */
 .top-layout{
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
+  grid-template-columns: 1.2fr 0.8fr;
   gap: 60px;
   align-items: start;
   margin-bottom: 70px;
-}
-
-.main-visual{
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 6px;
 }
 
 .desc p{
@@ -108,6 +101,13 @@ h1{
   font-size: 0.95rem;
   color: var(--muted);
   line-height: 1.6;
+}
+
+.main-visual{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
 }
 
 /* AVANT / APRES */
@@ -153,8 +153,8 @@ h1{
 
 <header>
   <a class="brand" href="index.html">
-    <img src="logoLFB2.png" alt="Logo LpStudio" class="logo-small" />
-    LpStudio
+    <img src="logoLFB.png" alt="Logo LFB Studio" class="logo-small" />
+    LFB Studio
   </a>
 
   <nav>
@@ -166,50 +166,50 @@ h1{
 </header>
 
 <main>
-<h1>Salle d’eau épurée</h1>
+  <h1>Transformation d’une salle de bain</h1>
 
-<div class="top-layout">
+  <div class="top-layout">
 
-  <!-- IMAGE PRINCIPALE -->
-  <img src="projet1.jpg" alt="Salle d’eau après rénovation" class="main-visual">
+    <!-- TEXTE GAUCHE -->
+    <div class="desc">
+      <p>
+        Ce projet présente la modernisation d’une salle de bain ancienne, repensée dans une version plus contemporaine, lumineuse et fonctionnelle.
+      </p>
 
-  <!-- DESCRIPTION -->
-  <div class="desc">
-    <p>
-      Cette rénovation avait pour objectif de transformer une salle de bain vieillissante, marquée par des teintes orangées 
-      et une baignoire encombrante, en une salle d’eau contemporaine, lumineuse et fonctionnelle.
-    </p>
+      <p>
+        À partir d’un espace existant daté, l’objectif était de proposer une ambiance plus actuelle, avec des lignes épurées, une meilleure lecture des volumes et une atmosphère plus agréable au quotidien.
+      </p>
 
-    <p>
-      L’espace a été entièrement repensé afin d’optimiser les volumes et les circulations. 
-      La baignoire a laissé place à une grande douche, apportant davantage de légèreté visuelle et de confort d’usage au quotidien. 
-      L’intégration d’une double vasque permet une utilisation simultanée plus pratique, répondant aux besoins actuels des occupants.
-      Le choix de matériaux sobres et de lignes épurées renforce la luminosité naturelle de la pièce et crée une atmosphère apaisante et intemporelle.
-    </p>
+      <p>
+        Le projet s’appuie sur un travail de modélisation et de réinterprétation de l’espace, afin de mettre en avant le potentiel d’une pièce souvent négligée mais pourtant essentielle dans un logement.
+      </p>
 
-    <div class="meta">
-      <div><strong>Type :</strong> Rénovation intérieure</div>
-      <div><strong>Surface :</strong> 4.2 m²</div>
-      <div><strong>Style :</strong> Moderne</div>
+      <div class="meta">
+        <div><strong>Type :</strong> Projet conceptuel de rénovation</div>
+        <div><strong>Pièce :</strong> Salle de bain</div>
+        <div><strong>Objectif :</strong> Modernisation et optimisation esthétique</div>
+      </div>
     </div>
+
+    <!-- IMAGE PRINCIPALE DROITE -->
+    <img src="SDBapres.jpg" alt="Salle de bain après rénovation" class="main-visual">
+
   </div>
 
-</div>
+  <!-- AVANT / APRES -->
+  <div class="before-after">
 
-<!-- AVANT / APRES -->
-<div class="before-after">
+    <div class="card">
+      <img src="SDBavant.jpg" alt="Salle de bain avant rénovation">
+      <div class="label">Avant</div>
+    </div>
 
-  <div class="card">
-    <img src="projet1avant.jpg" alt="Salle de bain avant travaux">
-    <div class="label">Avant travaux</div>
+    <div class="card">
+      <img src="SDBapres.jpg" alt="Salle de bain après rénovation">
+      <div class="label">Après</div>
+    </div>
+
   </div>
-
-  <div class="card">
-    <img src="projet1.jpg" alt="Salle d’eau après travaux">
-    <div class="label">Après travaux</div>
-  </div>
-
-</div>
 
 </main>
 
