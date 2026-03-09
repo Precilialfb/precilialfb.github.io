@@ -9,92 +9,186 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root{
-      --warm-white: #f6f1e8;   /* blanc cassé */
-      --text-dark:  #1a1a1a;
-      --muted:      rgba(26,26,26,0.70);
-      --border:     rgba(26,26,26,0.12);
+      --warm-white:#f6f1e8;
+      --text-dark:#1a1a1a;
+      --muted:rgba(26,26,26,0.72);
+      --border:rgba(26,26,26,0.12);
+      --accent:#ac6a35;
     }
 
-    body {
+    body{
       font-family: Helvetica, Arial, sans-serif;
       background: var(--warm-white);
       color: var(--text-dark);
     }
 
     /* HEADER */
-    header {
+    header{
       position: sticky;
-      top: 0;
-      width: 100%;
-      padding: 22px 50px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 10;
-      background: rgba(246,241,232,0.85);
+      top:0;
+      width:100%;
+      padding:22px 50px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background: rgba(246,241,232,0.88);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border);
+      z-index: 10;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
       color: var(--text-dark);
       text-transform: uppercase;
       letter-spacing: 2px;
       font-size: 0.85rem;
     }
 
-    .logo-small { width: 30px; height: auto; display:block; }
+    .logo-small{
+      width:40px;
+      height:auto;
+      display:block;
+    }
 
-    nav a {
-      margin-left: 26px;
-      text-decoration: none;
+    nav a{
+      margin-left:26px;
+      text-decoration:none;
       color: var(--text-dark);
       font-size: 0.85rem;
       letter-spacing: 1px;
       text-transform: uppercase;
       opacity: 0.85;
-      transition: opacity 0.2s ease;
+      transition: opacity .2s ease;
     }
-    nav a:hover { opacity: 0.55; }
 
-    main {
-      max-width: 980px;
+    nav a:hover{ opacity: 0.55; }
+
+    /* PAGE */
+    main{
+      max-width: 1250px;
       margin: 0 auto;
-      padding: 90px 50px 120px;
+      padding: 80px 50px 120px;
     }
 
-    h1 {
+    .intro{
+      max-width: 900px;
+      margin-bottom: 70px;
+    }
+
+    h1{
       font-weight: 400;
       letter-spacing: 1px;
-      margin-bottom: 18px;
       font-size: 2rem;
+      margin-bottom: 18px;
     }
 
-    p {
+    .intro p{
       line-height: 1.75;
       color: var(--muted);
-      max-width: 820px;
       font-size: 1.02rem;
     }
 
-    @media (max-width: 760px) {
-      header { padding: 18px 20px; }
-      nav a { margin-left: 14px; font-size: 0.75rem; }
-      .brand { font-size: 0.75rem; }
-      main { padding: 70px 20px 100px; }
-      h1 { font-size: 1.6rem; }
+    /* BLOCS DYNAMIQUES */
+    .section-block{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+
+    .section-block.reverse{
+      direction: rtl;
+    }
+
+    .section-block.reverse > *{
+      direction: ltr;
+    }
+
+    .text-box h2{
+      font-weight: 400;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+      color: var(--text-dark);
+    }
+
+    .text-box p{
+      line-height: 1.8;
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+
+    .text-box ul{
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .text-box li{
+      margin: 10px 0;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .text-box li::before{
+      content: "— ";
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    .image-box img{
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      box-shadow: 0 14px 35px rgba(0,0,0,0.08);
+    }
+
+    .highlight{
+      max-width: 1000px;
+      margin: 30px auto 0;
+      padding: 28px 30px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.35);
+    }
+
+    .highlight p{
+      line-height: 1.8;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 950px){
+      .section-block,
+      .section-block.reverse{
+        grid-template-columns: 1fr;
+        gap: 30px;
+        direction: ltr;
+      }
+    }
+
+    @media (max-width: 760px){
+      header{ padding: 18px 20px; }
+      nav a{ margin-left: 14px; font-size: 0.75rem; }
+      .brand{ font-size: 0.75rem; }
+      .logo-small{ width: 32px; }
+      main{ padding: 65px 20px 100px; }
     }
   </style>
 </head>
 
 <body>
+
   <header>
     <a class="brand" href="index.html">
-      <img src="logoLFB2.png" alt="Logo LFBStudio" class="logo-small" />
+      <img src="logoLFB.png" alt="Logo LFB Studio" class="logo-small" />
       LFB Studio
     </a>
 
@@ -107,21 +201,93 @@
   </header>
 
   <main>
-    <h1>À propos</h1>
-    <p>
-     Je m’appelle Précilia, fondatrice de LpStudio et diplômée d’un Master en architecture d’intérieur à Paris.
-Après plusieurs années d’expérience en agence, j’ai choisi de créer mon propre studio afin de proposer une approche plus personnelle, attentive et sur mesure.
 
+    <div class="intro">
+      <h1>À propos</h1>
+      <p>
+        LFB Studio est une agence d’architecture d’intérieur spécialisée dans la rénovation
+        et l’aménagement d’espaces de vie. L’agence accompagne les particuliers dans la
+        transformation de leur intérieur en proposant des projets sur mesure, pensés pour
+        améliorer le confort, la fonctionnalité et l’esthétique des lieux.
+      </p>
+    </div>
 
-      Mon travail repose sur l’écoute. Chaque projet commence par une compréhension fine de vos habitudes, de vos envies et de votre manière de vivre les espaces. Mon rôle n’est pas d’imposer un style, mais de révéler le vôtre.
+    <!-- Bloc 1 -->
+    <section class="section-block">
+      <div class="text-box">
+        <h2>Une agence ancrée en Dordogne</h2>
+        <p>
+          Basée en Dordogne, LFB Studio intervient notamment à Périgueux et dans ses environs
+          pour des projets de rénovation de maisons, d’aménagement d’appartements et de
+          réorganisation d’espaces existants.
+        </p>
+        <p>
+          Chaque projet est abordé avec une attention particulière portée aux besoins des
+          occupants, au potentiel du lieu et aux contraintes techniques.
+        </p>
+      </div>
 
-Je conçois des intérieurs à la fois esthétiques, fonctionnels et durables. Du mid-century au japandi, du moderne minimal au cocooning chaleureux, je m’adapte à chaque univers avec exigence et cohérence architecturale.
+      <div class="image-box">
+        <img src="apropos1.jpg" alt="Projet d’architecture d’intérieur LFB Studio">
+      </div>
+    </section>
 
-J’accompagne mes clients dans la conception complète de leurs espaces : réorganisation des volumes, optimisation des circulations, choix des matériaux, palettes, mobiliers et ambiances. Je propose également des prestations de home staging pour valoriser un bien avant sa mise en vente.
+    <!-- Bloc 2 -->
+    <section class="section-block reverse">
+      <div class="text-box">
+        <h2>Une approche sur mesure</h2>
+        <p>
+          Chez LFB Studio, chaque projet commence par une phase d’écoute et d’analyse afin
+          de comprendre le mode de vie, les attentes et les contraintes du client.
+          Cette étape permet de concevoir des espaces qui ne sont pas seulement esthétiques,
+          mais aussi parfaitement adaptés à leur usage quotidien.
+        </p>
+        <ul>
+          <li>analyse de l’existant et du potentiel du lieu</li>
+          <li>conception des plans d’aménagement</li>
+          <li>modélisation 3D pour faciliter la projection</li>
+          <li>conseils sur les matériaux, les couleurs et les ambiances</li>
+          <li>accompagnement dans les choix d’aménagement</li>
+        </ul>
+      </div>
 
+      <div class="image-box">
+        <img src="apropos2.jpg" alt="Plans et conception d’espaces">
+      </div>
+    </section>
 
-      Pour moi, un projet réussi est un projet qui vous ressemble, où chaque détail trouve sa place avec justesse.
-    </p>
+    <!-- Bloc 3 -->
+    <section class="section-block">
+      <div class="text-box">
+        <h2>Une expertise en rénovation intérieure</h2>
+        <p>
+          La rénovation intérieure nécessite une compréhension fine des volumes, des circulations
+          et des contraintes techniques d’un bâtiment. Grâce à une expérience dans la conception
+          de projets et la coordination avec les professionnels du bâtiment, LFB Studio veille à
+          transformer les espaces de manière fonctionnelle et harmonieuse.
+        </p>
+        <p>
+          L’agence travaille régulièrement sur des projets tels que la rénovation complète de maisons,
+          l’aménagement d’appartements, la transformation de pièces de vie, la rénovation de cuisines
+          et de salles de bain, ainsi que l’optimisation des petits espaces.
+        </p>
+      </div>
+
+      <div class="image-box">
+        <img src="apropos3.jpg" alt="Rénovation et aménagement intérieur">
+      </div>
+    </section>
+
+    <div class="highlight">
+      <p>
+        Grâce à une approche à la fois créative et pragmatique, LFB Studio propose des solutions
+        adaptées aux besoins de chaque projet, du simple réaménagement d’espace à la rénovation
+        complète d’un intérieur, avec un objectif constant : révéler le potentiel du lieu tout en
+        créant des espaces confortables, lumineux et durables.
+      </p>
+    </div>
+
   </main>
+
 </body>
 </html>
